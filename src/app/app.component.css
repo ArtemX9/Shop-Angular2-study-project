@@ -1,0 +1,14 @@
+.main-page {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+.main-page__products {
+  flex-basis: 70vw;
+}
+
+.main-page__cart {
+  flex-basis: 30vw;
+  background: #f1f1f1;
+}

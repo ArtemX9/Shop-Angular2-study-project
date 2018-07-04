@@ -1,0 +1,7 @@
+<div class="products">
+  <div *ngFor="let product of products">
+    <div class="products__product">
+      <app-product-component [product]="product" (onProductBuyPress)="handleProductBuyPress($event)"></app-product-component>
+    </div>
+  </div>
+</div>

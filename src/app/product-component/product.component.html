@@ -1,0 +1,8 @@
+<div class="product" [class.product--unavailable]="!isAvailable">
+  <div><b>{{name}}</b></div>
+  <div>Description: {{description}}</div>
+  <div>Category: {{category}}</div>
+  <div>Price: {{price}}$</div>
+  <div>Is present on stock: {{isAvailable ? 'yes' : 'no'}}</div>
+  <button [disabled]="!isAvailable" (click)="putToCart()">Buy</button>
+</div>
