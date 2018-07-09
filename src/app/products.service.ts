@@ -5,7 +5,7 @@ import {Category, Product} from './models/ProductModel';
   providedIn: 'root'
 })
 export class ProductsService {
-  private products: [Product] = [];
+  private products: Product[] = [];
 
   constructor() {
     this.products.push(new Product('Watermelon', 'Watermelon from Russia', 5, Category.Berries, true));
@@ -17,7 +17,7 @@ export class ProductsService {
     this.products.push(new Product('Vanilla', 'Vanilla Ice Cream from USA', 20, Category.IceCream, true));
   }
 
-  getProducts(): [Product] {
+  getProducts(): Product[] {
     return this.products;
   }
 }

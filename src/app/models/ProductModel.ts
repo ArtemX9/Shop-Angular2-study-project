@@ -41,22 +41,14 @@ export class ProductInCart implements IProductInCart {
   isAvailable: boolean;
   amount: number;
 
-  constructor(product: IProduct) {
-    this.name = product.name;
-    this.description = product.description;
-    this.price = product.price;
-    this.category = product.category;
-    this.isAvailable = product.isAvailable;
-    this.amount = 1;
-  }
-
-  constructor(name: string, description: string, price: number, category: Category, isAvailable: boolean, amount: number = 0) {
-    this.name = name;
-    this.description = description;
-    this.price = price;
-    this.category = category;
-    this.isAvailable = isAvailable;
-    this.amount = amount;
+  constructor(product: IProduct);
+  constructor(productInCart: IProductInCart) {
+    this.name = productInCart.name;
+    this.description = productInCart.description;
+    this.price = productInCart.price;
+    this.category = productInCart.category;
+    this.isAvailable = productInCart.isAvailable;
+    this.amount = productInCart.amount || 1;
   }
 
   incrementAmount(): void {

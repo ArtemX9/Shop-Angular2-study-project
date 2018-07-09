@@ -5,13 +5,13 @@ import {Product, ProductInCart} from './models/ProductModel';
   providedIn: 'root'
 })
 export class CartService {
-  private productsInCart: [ProductInCart] = [];
+  private productsInCart: ProductInCart[] = [];
   private totalSum = 0;
 
   constructor() {
   }
 
-  getProductsInCart(): [ProductInCart] {
+  getProductsInCart(): ProductInCart[] {
     return this.productsInCart;
   }
 
@@ -47,7 +47,7 @@ export class CartService {
     this.totalSum = this.calculateTotalSum();
   }
 
-  clearCart(): [ProductInCart] {
+  clearCart(): ProductInCart[] {
     this.productsInCart = [];
     this.totalSum = 0;
 
