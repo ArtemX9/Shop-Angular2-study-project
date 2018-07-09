@@ -9,6 +9,8 @@
         [totalSum]="totalSum"
         (incrementAmount)="onIncrementAmount($event)"
         (decrementAmount)="onDecrementAmount($event)"
+        (delete)="onDelete($event)"
+        (clearCart)="onClearCart()"
       ></app-cart-list>
     </div>
   </ng-template>

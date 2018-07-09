@@ -11,6 +11,8 @@ export class CartListComponent implements OnInit {
   @Input() totalSum: number;
   @Output() incrementAmount: EventEmitter<ProductInCart> = new EventEmitter<ProductInCart>();
   @Output() decrementAmount: EventEmitter<ProductInCart> = new EventEmitter<ProductInCart>();
+  @Output() delete: EventEmitter<ProductInCart> = new EventEmitter<ProductInCart>();
+  @Output() clearCart: EventEmitter<ProductInCart> = new EventEmitter<ProductInCart>();
 
   constructor() {
   }
@@ -24,5 +26,13 @@ export class CartListComponent implements OnInit {
 
   onDecrementAmount(productInCart: ProductInCart): void {
     this.decrementAmount.emit(productInCart);
+  }
+
+  onDelete(productInCart: ProductInCart): void {
+    this.delete.emit(productInCart);
+  }
+
+  onClearCart(): void {
+    this.clearCart.emit();
   }
 }

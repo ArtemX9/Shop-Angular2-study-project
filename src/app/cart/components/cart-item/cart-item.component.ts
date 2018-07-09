@@ -11,6 +11,7 @@ export class CartItemComponent implements OnInit, DoCheck {
   @Input() productInCart: ProductInCart;
   @Output() incrementAmount: EventEmitter<void> = new EventEmitter<void>();
   @Output() decrementAmount: EventEmitter<void> = new EventEmitter<void>();
+  @Output() delete: EventEmitter<void> = new EventEmitter<void>();
 
   productInCartDiffer: any;
 
@@ -33,6 +34,10 @@ export class CartItemComponent implements OnInit, DoCheck {
 
   onDecrementAmount() {
     this.decrementAmount.emit();
+  }
+
+  onDelete() {
+    this.delete.emit();
   }
 
 }

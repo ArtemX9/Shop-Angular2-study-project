@@ -26,7 +26,7 @@ export class CartComponent implements OnInit, DoCheck {
     }
   }
 
-  clearCart(): void {
+  onClearCart(): void {
     this.productsInCart = this.productsInCartService.clearCart();
   }
 
@@ -36,5 +36,9 @@ export class CartComponent implements OnInit, DoCheck {
 
   onDecrementAmount(productInCart: ProductInCart): void {
     this.productsInCartService.decrementProductAmount(productInCart);
+  }
+
+  onDelete(productInCart: ProductInCart): void {
+    this.productsInCartService.deleteFromCart(productInCart);
   }
 }

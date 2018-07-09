@@ -40,10 +40,14 @@ export class CartService {
     productInCart.decrementAmount();
 
     if (productInCart.amount === 0) {
-      const elementIndexToRemove = this.productsInCart.indexOf(productInCart);
-      this.productsInCart.splice(elementIndexToRemove, 1);
+      this.removeFromCart(productInCart);
     }
 
+    this.totalSum = this.calculateTotalSum();
+  }
+
+  deleteFromCart(productInCart: ProductInCart) {
+    this.removeFromCart(productInCart);
     this.totalSum = this.calculateTotalSum();
   }
 
@@ -52,6 +56,11 @@ export class CartService {
     this.totalSum = 0;
 
     return this.productsInCart;
+  }
+
+  private removeFromCart(productInCart: ProductInCart) {
+    const elementIndexToRemove = this.productsInCart.indexOf(productInCart);
+    this.productsInCart.splice(elementIndexToRemove, 1);
   }
 
   private calculateTotalSum(): number {
