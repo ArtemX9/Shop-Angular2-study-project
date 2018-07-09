@@ -1,4 +1,4 @@
-import {Component, DoCheck, IterableDiffers, OnInit} from '@angular/core';
+import {Component, DoCheck, OnInit} from '@angular/core';
 import {ProductInCart} from '../../../models/ProductModel';
 import {CartService} from '../../../cart.service';
 
@@ -10,22 +10,19 @@ import {CartService} from '../../../cart.service';
 export class CartComponent implements OnInit, DoCheck {
   productsInCart: ProductInCart[];
   totalSum: number;
-  differ: any;
 
-  constructor(private differs: IterableDiffers, private productsInCartService: CartService) {
-
+  constructor(private productsInCartService: CartService) {
   }
 
   ngOnInit() {
     this.productsInCart = this.productsInCartService.getProductsInCart();
     this.totalSum = this.productsInCartService.getTotalSum();
-    this.differ = this.differs.find(this.productsInCart).create(null);
   }
 
   ngDoCheck() {
-    const productsInCartChanges = this.differ.diff(this.productsInCart);
-    if (productsInCartChanges) {
-      this.totalSum = this.productsInCartService.getTotalSum();
+    const newTotalSum = this.productsInCartService.getTotalSum();
+    if (this.totalSum !== newTotalSum) {
+      this.totalSum = newTotalSum;
     }
   }
 
