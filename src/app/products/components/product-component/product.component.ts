@@ -1,8 +1,9 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Category, Product} from '../models/ProductModel';
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Category, Product} from '../../../models/ProductModel';
 
 @Component({
   selector: 'app-product-component',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.css']
 })

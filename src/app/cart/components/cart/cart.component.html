@@ -1,0 +1,16 @@
+<div>
+  <div *ngIf="!productsInCart.length; else shouldShowCart">
+    No items in cart.
+  </div>
+  <ng-template #shouldShowCart>
+    <div>
+      <app-cart-list
+        [productsInCart]="productsInCart"
+        [totalSum]="totalSum"
+        (incrementAmount)="onIncrementAmount($event)"
+        (decrementAmount)="onDecrementAmount($event)"
+      ></app-cart-list>
+    </div>
+  </ng-template>
+</div>
+

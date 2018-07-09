@@ -1,0 +1,11 @@
+<button (click)="clearCart()">Clear cart</button>
+<ol>
+  <div *ngFor="let productInCart of productsInCart">
+    <app-cart-item
+      [productInCart]="productInCart"
+      (incrementAmount)="onIncrementAmount(productInCart)"
+      (decrementAmount)="onDecrementAmount(productInCart)"
+    ></app-cart-item>
+  </div>
+  Total sum = {{totalSum}}
+</ol>
