@@ -1,5 +1,6 @@
 import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Category, Product} from '../../../models/ProductModel';
+import {Product} from '../../../models/ProductModel';
+import {Category} from '../../../models/CategoryModel';
 
 @Component({
   selector: 'app-product-component',
