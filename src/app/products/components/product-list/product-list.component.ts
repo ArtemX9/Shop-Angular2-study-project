@@ -18,7 +18,7 @@ export class ProductListComponent implements OnInit {
     this.products = this.productsService.getProducts();
   }
 
-  handleProductBuyPress(boughtProduct: Product): void {
+  onProductBuyPress(boughtProduct: Product): void {
     this.productsInCartService.buyProduct(boughtProduct);
   }
 }

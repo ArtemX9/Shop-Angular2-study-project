@@ -10,7 +10,7 @@ import {Category} from '../../../models/CategoryModel';
 })
 export class ProductComponent implements OnInit {
   @Input() product: Product;
-  @Output() onProductBuyPress: EventEmitter<Product> = new EventEmitter<Product>();
+  @Output() productBuyPress: EventEmitter<Product> = new EventEmitter<Product>();
 
   name: string;
   description: string;
@@ -29,7 +29,7 @@ export class ProductComponent implements OnInit {
     this.isAvailable = this.product.isAvailable;
   }
 
-  putToCart(): void {
-    this.onProductBuyPress.emit(this.product);
+  onPutToCart(): void {
+    this.productBuyPress.emit(this.product);
   }
 }
