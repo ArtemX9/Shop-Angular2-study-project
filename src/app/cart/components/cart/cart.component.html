@@ -1,9 +1,5 @@
 <div>
-  <div *ngIf="!productsInCart.length; else shouldShowCart">
-    No items in cart.
-  </div>
-  <ng-template #shouldShowCart>
-    <div>
+    <div *ngIf="productsInCart.length; else shouldShowCartEmpty">
       <app-cart-list
         [productsInCart]="productsInCart"
         [totalSum]="totalSum"
@@ -13,6 +9,9 @@
         (clearCart)="onClearCart()"
       ></app-cart-list>
     </div>
+
+  <ng-template #shouldShowCartEmpty >
+    No items in cart.
   </ng-template>
 </div>
 
