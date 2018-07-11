@@ -26,4 +26,6 @@
         Создал директиву ItemEffectsDirective и зарегистрировал ее в SharedModule.
         Использовал @HostListener декоратор.
 
-11. Применил директиву ngClass или ngStyle
+11. Применил директиву ngClass в ProductComponent
+
+12.

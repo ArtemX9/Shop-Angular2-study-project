@@ -1,4 +1,4 @@
-<div class="product" [class.product--unavailable]="!isAvailable">
+<div class="product" [ngClass]="setClasses()">
   <div><b>{{name}}</b></div>
   <div>Description: {{description}}</div>
   <div>Category: {{category}}</div>
