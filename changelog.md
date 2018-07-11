@@ -28,4 +28,6 @@
 
 11. Применил директиву ngClass в ProductComponent
 
-12.
+12. ItemEffectsDirective теперь принимает параметр цвета
+
+12. Добавил директиву ItemEffectsDirective на ProductComponent
