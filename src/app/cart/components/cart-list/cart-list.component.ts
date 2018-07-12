@@ -9,8 +9,8 @@ import {ProductInCart} from '../../../models/ProductInCartModel';
 export class CartListComponent implements OnInit {
   @Input() productsInCart: ProductInCart[];
   @Input() totalSum: number;
-  @Output() incrementAmount: EventEmitter<ProductInCart> = new EventEmitter<ProductInCart>();
-  @Output() decrementAmount: EventEmitter<ProductInCart> = new EventEmitter<ProductInCart>();
+  @Output() incrementQuantity: EventEmitter<ProductInCart> = new EventEmitter<ProductInCart>();
+  @Output() decrementQuantity: EventEmitter<ProductInCart> = new EventEmitter<ProductInCart>();
   @Output() delete: EventEmitter<ProductInCart> = new EventEmitter<ProductInCart>();
   @Output() clearCart: EventEmitter<ProductInCart> = new EventEmitter<ProductInCart>();
 
@@ -20,12 +20,12 @@ export class CartListComponent implements OnInit {
   ngOnInit() {
   }
 
-  onIncrementAmount(productInCart: ProductInCart): void {
-    this.incrementAmount.emit(productInCart);
+  onIncrementQuantity(productInCart: ProductInCart): void {
+    this.incrementQuantity.emit(productInCart);
   }
 
-  onDecrementAmount(productInCart: ProductInCart): void {
-    this.decrementAmount.emit(productInCart);
+  onDecrementQuantity(productInCart: ProductInCart): void {
+    this.decrementQuantity.emit(productInCart);
   }
 
   onDelete(productInCart: ProductInCart): void {

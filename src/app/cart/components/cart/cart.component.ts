@@ -30,11 +30,11 @@ export class CartComponent implements OnInit, DoCheck {
     this.productsInCart = this.productsInCartService.clearCart();
   }
 
-  onIncrementAmount(productInCart: ProductInCart): void {
+  onIncrementQuantity(productInCart: ProductInCart): void {
     this.productsInCartService.incrementProductAmount(productInCart);
   }
 
-  onDecrementAmount(productInCart: ProductInCart): void {
+  onDecrementQuantity(productInCart: ProductInCart): void {
     this.productsInCartService.decrementProductAmount(productInCart);
   }
 

@@ -9,8 +9,8 @@ import {ProductInCart} from '../../../models/ProductInCartModel';
 })
 export class CartItemComponent implements OnInit, DoCheck {
   @Input() productInCart: ProductInCart;
-  @Output() incrementAmount: EventEmitter<void> = new EventEmitter<void>();
-  @Output() decrementAmount: EventEmitter<void> = new EventEmitter<void>();
+  @Output() incrementQuantity: EventEmitter<void> = new EventEmitter<void>();
+  @Output() decrementQuantity: EventEmitter<void> = new EventEmitter<void>();
   @Output() delete: EventEmitter<void> = new EventEmitter<void>();
 
   productInCartDiffer: any;
@@ -28,12 +28,12 @@ export class CartItemComponent implements OnInit, DoCheck {
     }
   }
 
-  onIncrementAmount() {
-    this.incrementAmount.emit();
+  onIncrementQuantity() {
+    this.incrementQuantity.emit();
   }
 
-  onDecrementAmount() {
-    this.decrementAmount.emit();
+  onDecrementQuantity() {
+    this.decrementQuantity.emit();
   }
 
   onDelete() {

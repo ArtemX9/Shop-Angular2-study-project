@@ -2,7 +2,7 @@ import {IProduct} from './ProductModel';
 import {Category} from './CategoryModel';
 
 interface IProductInCart extends IProduct {
-  amount: number;
+  quantity: number;
 }
 
 export class ProductInCart implements IProductInCart {
@@ -11,7 +11,7 @@ export class ProductInCart implements IProductInCart {
   price: number;
   category: Category;
   isAvailable: boolean;
-  amount: number;
+  quantity: number;
 
   constructor(product: IProduct);
   constructor(productInCart: IProductInCart) {
@@ -20,16 +20,16 @@ export class ProductInCart implements IProductInCart {
     this.price = productInCart.price;
     this.category = productInCart.category;
     this.isAvailable = productInCart.isAvailable;
-    this.amount = productInCart.amount || 1;
+    this.quantity = productInCart.quantity || 1;
   }
 
-  incrementAmount(): void {
-    this.amount += 1;
+  incrementQuantity(): void {
+    this.quantity += 1;
   }
 
-  decrementAmount(): void {
-    if (this.amount !== 0) {
-      this.amount -= 1;
+  decrementQuantity(): void {
+    if (this.quantity !== 0) {
+      this.quantity -= 1;
     }
   }
 }

@@ -4,8 +4,8 @@
     <app-cart-item
       *ngFor="let productInCart of productsInCart"
       [productInCart]="productInCart"
-      (incrementAmount)="onIncrementAmount(productInCart)"
-      (decrementAmount)="onDecrementAmount(productInCart)"
+      (incrementQuantity)="onIncrementQuantity(productInCart)"
+      (decrementQuantity)="onDecrementQuantity(productInCart)"
       (delete)="onDelete(productInCart)"
     ></app-cart-item>
   </ol>

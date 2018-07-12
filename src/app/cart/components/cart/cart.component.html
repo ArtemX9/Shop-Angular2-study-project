@@ -3,8 +3,8 @@
       <app-cart-list
         [productsInCart]="productsInCart"
         [totalSum]="totalSum"
-        (incrementAmount)="onIncrementAmount($event)"
-        (decrementAmount)="onDecrementAmount($event)"
+        (incrementQuantity)="onIncrementQuantity($event)"
+        (decrementQuantity)="onDecrementQuantity($event)"
         (delete)="onDelete($event)"
         (clearCart)="onClearCart()"
       ></app-cart-list>

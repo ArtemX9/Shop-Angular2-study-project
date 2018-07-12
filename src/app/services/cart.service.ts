@@ -23,7 +23,7 @@ export class CartService {
   buyProduct(productToAdd: Product): void {
     let product = this.productsInCart.find(productInCart => productInCart.name === productToAdd.name);
     if (product) {
-      product.incrementAmount();
+      product.incrementQuantity();
     } else {
       product = new ProductInCart(productToAdd);
       this.productsInCart.push(product);
@@ -33,14 +33,14 @@ export class CartService {
   }
 
   incrementProductAmount(productInCart: ProductInCart): void {
-    productInCart.incrementAmount();
+    productInCart.incrementQuantity();
     this.totalSum = this.calculateTotalSum();
   }
 
   decrementProductAmount(productInCart: ProductInCart): void {
-    productInCart.decrementAmount();
+    productInCart.decrementQuantity();
 
-    if (productInCart.amount === 0) {
+    if (productInCart.quantity === 0) {
       this.removeFromCart(productInCart);
     }
 
@@ -66,7 +66,7 @@ export class CartService {
 
   private calculateTotalSum(): number {
     return this.productsInCart.reduce((sum, product) => {
-      return sum + product.amount * product.price;
+      return sum + product.quantity * product.price;
     }, 0);
   }
 }
