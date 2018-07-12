@@ -29,6 +29,12 @@ export class ProductComponent implements OnInit {
     this.isAvailable = this.product.isAvailable;
   }
 
+  setClasses() {
+    return {
+      'product--unavailable': !this.isAvailable
+    };
+  }
+
   onPutToCart(): void {
     this.productBuyPress.emit(this.product);
   }
