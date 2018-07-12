@@ -10,6 +10,7 @@ import {CartService} from '../../../services/cart.service';
 export class CartComponent implements OnInit, DoCheck {
   productsInCart: ProductInCart[];
   totalSum: number;
+  totalQuantity: number;
 
   constructor(private productsInCartService: CartService) {
   }
@@ -17,12 +18,14 @@ export class CartComponent implements OnInit, DoCheck {
   ngOnInit() {
     this.productsInCart = this.productsInCartService.getProductsInCart();
     this.totalSum = this.productsInCartService.getTotalSum();
+    this.totalQuantity = this.productsInCartService.getTotalQuantity();
   }
 
   ngDoCheck() {
     const newTotalSum = this.productsInCartService.getTotalSum();
     if (this.totalSum !== newTotalSum) {
       this.totalSum = newTotalSum;
+      this.totalQuantity = this.productsInCartService.getTotalQuantity();
     }
   }
 
@@ -31,11 +34,11 @@ export class CartComponent implements OnInit, DoCheck {
   }
 
   onIncrementQuantity(productInCart: ProductInCart): void {
-    this.productsInCartService.incrementProductAmount(productInCart);
+    this.productsInCartService.incrementProductQuantity(productInCart);
   }
 
   onDecrementQuantity(productInCart: ProductInCart): void {
-    this.productsInCartService.decrementProductAmount(productInCart);
+    this.productsInCartService.decrementProductQuantity(productInCart);
   }
 
   onDelete(productInCart: ProductInCart): void {

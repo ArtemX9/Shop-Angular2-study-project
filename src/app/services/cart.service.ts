@@ -8,6 +8,7 @@ import {ProductInCart} from '../models/ProductInCartModel';
 export class CartService {
   private productsInCart: ProductInCart[] = [];
   private totalSum = 0;
+  private totalQuantity = 0;
 
   constructor() {
   }
@@ -20,6 +21,10 @@ export class CartService {
     return this.totalSum;
   }
 
+  getTotalQuantity(): number {
+    return this.totalQuantity;
+  }
+
   buyProduct(productToAdd: Product): void {
     let product = this.productsInCart.find(productInCart => productInCart.name === productToAdd.name);
     if (product) {
@@ -30,14 +35,16 @@ export class CartService {
     }
 
     this.totalSum = this.calculateTotalSum();
+    this.totalQuantity += product.quantity;
   }
 
-  incrementProductAmount(productInCart: ProductInCart): void {
+  incrementProductQuantity(productInCart: ProductInCart): void {
     productInCart.incrementQuantity();
     this.totalSum = this.calculateTotalSum();
+    this.totalQuantity += 1;
   }
 
-  decrementProductAmount(productInCart: ProductInCart): void {
+  decrementProductQuantity(productInCart: ProductInCart): void {
     productInCart.decrementQuantity();
 
     if (productInCart.quantity === 0) {
@@ -45,22 +52,26 @@ export class CartService {
     }
 
     this.totalSum = this.calculateTotalSum();
+    this.totalQuantity -= 1;
   }
 
   deleteFromCart(productInCart: ProductInCart) {
     this.removeFromCart(productInCart);
     this.totalSum = this.calculateTotalSum();
+    this.totalQuantity = 0;
   }
 
   clearCart(): ProductInCart[] {
     this.productsInCart = [];
     this.totalSum = 0;
+    this.totalQuantity = 0;
 
     return this.productsInCart;
   }
 
   private removeFromCart(productInCart: ProductInCart) {
     const elementIndexToRemove = this.productsInCart.indexOf(productInCart);
+    this.totalQuantity -= productInCart.quantity;
     this.productsInCart.splice(elementIndexToRemove, 1);
   }
 

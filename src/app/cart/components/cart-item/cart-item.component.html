@@ -1,9 +1,11 @@
-<li appItemEffects [appItemEffectsColor]="'yellow'">
-  <div>Name: {{productInCart.name}}</div>
-  <div>
-    <span>Amount: {{productInCart.quantity}}</span>
-    <button (click)="onIncrementQuantity()">+</button>
-    <button (click)="onDecrementQuantity()">-</button>
+<li appItemEffects [appItemEffectsColor]="'yellow'" class="cart-item">
+  <div class="cart-item__name">Name: {{productInCart.name}}</div>
+  <div class="cart-item__quantity cart-item-quantity">
+    <span class="cart-item-quantity__info">Amount: {{productInCart.quantity}}</span>
+    <span class="cart-item-quantity__control cart-item-quantity-control">
+      <button class="cart-item-quantity-control__increment-button" (click)="onIncrementQuantity()">+</button>
+      <button class="cart-item-quantity-control__decrement-button" (click)="onDecrementQuantity()">-</button>
+    </span>
   </div>
   <button (click)="onDelete()">Delete</button>
 </li>

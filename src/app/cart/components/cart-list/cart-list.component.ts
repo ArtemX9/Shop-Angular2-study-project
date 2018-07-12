@@ -9,6 +9,8 @@ import {ProductInCart} from '../../../models/ProductInCartModel';
 export class CartListComponent implements OnInit {
   @Input() productsInCart: ProductInCart[];
   @Input() totalSum: number;
+  @Input() totalQuantity: number;
+
   @Output() incrementQuantity: EventEmitter<ProductInCart> = new EventEmitter<ProductInCart>();
   @Output() decrementQuantity: EventEmitter<ProductInCart> = new EventEmitter<ProductInCart>();
   @Output() delete: EventEmitter<ProductInCart> = new EventEmitter<ProductInCart>();
