@@ -1,0 +1,19 @@
+<p>
+  <button (click)="onShowInfoClick()">ShowInfo</button>
+</p>
+
+<div class="demo-modal" *ngIf="showInfoModal" >
+  <div class="demo-modal__window">
+    <button class="demo-modal__close-button" (click)="onHideInfoClick()">x</button>
+    <div>
+      <p>App Info:</p>
+      <p>App name: {{constants.App}}</p>
+      <p>App version: {{constants.Ver}}</p>
+      <p>Config options:</p>
+      <p>ID: {{config.id}}</p>
+      <p>Email: {{config.email}}</p>
+      <p>Login: {{config.login}}</p>
+      <p>Generated HASH: {{hash}}</p>
+    </div>
+  </div>
+</div>

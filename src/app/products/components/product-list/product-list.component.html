@@ -1,6 +1,6 @@
 <div class="products">
   <div *ngFor="let product of products">
-    <div class="products__product" appItemEffects [appItemEffectsColor]="'#8080806b'">
+    <div class="products__product">
       <app-product-component [product]="product" (productBuyPress)="onProductBuyPress($event)"></app-product-component>
     </div>
   </div>

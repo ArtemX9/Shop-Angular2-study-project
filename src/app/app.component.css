@@ -2,13 +2,27 @@
   display: flex;
   height: 100vh;
   width: 100vw;
+  flex-direction: column;
 }
 
-.main-page__products {
+.main-page__header{
+  background: lightskyblue;
+}
+
+.main-page-body {
+  display: flex;
+  height: 100%;
+}
+
+.main-page-body__header {
+  height: 50px;
+}
+
+.main-page-body__products {
   flex-basis: 70vw;
 }
 
-.main-page__cart {
+.main-page-body__cart {
   flex-basis: 30vw;
   background: #f1f1f1;
 }

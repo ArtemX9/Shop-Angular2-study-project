@@ -28,27 +28,35 @@ export class CartService {
   buyProduct(productToAdd: Product): void {
     let product = this.productsInCart.find(productInCart => productInCart.name === productToAdd.name);
     if (product) {
-      product.incrementQuantity();
+      const newProduct = new ProductInCart(product);
+      newProduct.incrementQuantity();
+      this.updateProduct(newProduct, product);
+      this.totalQuantity += 1;
     } else {
       product = new ProductInCart(productToAdd);
       this.productsInCart.push(product);
+      this.totalQuantity += product.quantity;
     }
 
     this.totalSum = this.calculateTotalSum();
-    this.totalQuantity += product.quantity;
   }
 
   incrementProductQuantity(productInCart: ProductInCart): void {
-    productInCart.incrementQuantity();
+    const newProduct = new ProductInCart(productInCart);
+    newProduct.incrementQuantity();
+    this.updateProduct(newProduct, productInCart);
+
     this.totalSum = this.calculateTotalSum();
     this.totalQuantity += 1;
   }
 
   decrementProductQuantity(productInCart: ProductInCart): void {
-    productInCart.decrementQuantity();
+    const newProduct = new ProductInCart(productInCart);
+    newProduct.decrementQuantity();
+    this.updateProduct(newProduct, productInCart);
 
-    if (productInCart.quantity === 0) {
-      this.removeFromCart(productInCart);
+    if (newProduct.quantity === 0) {
+      this.removeFromCart(newProduct);
     }
 
     this.totalSum = this.calculateTotalSum();
@@ -58,7 +66,7 @@ export class CartService {
   deleteFromCart(productInCart: ProductInCart) {
     this.removeFromCart(productInCart);
     this.totalSum = this.calculateTotalSum();
-    this.totalQuantity = 0;
+    this.totalQuantity -= productInCart.quantity;
   }
 
   clearCart(): ProductInCart[] {
@@ -69,9 +77,13 @@ export class CartService {
     return this.productsInCart;
   }
 
+  private updateProduct(newProduct: ProductInCart, oldProduct: ProductInCart) {
+    const elementIndexToReplace = this.productsInCart.indexOf(oldProduct);
+    this.productsInCart[elementIndexToReplace] = newProduct;
+  }
+
   private removeFromCart(productInCart: ProductInCart) {
     const elementIndexToRemove = this.productsInCart.indexOf(productInCart);
-    this.totalQuantity -= productInCart.quantity;
     this.productsInCart.splice(elementIndexToRemove, 1);
   }
 
