@@ -31,10 +31,12 @@ export class CartService {
       const newProduct = new ProductInCart(product);
       newProduct.incrementQuantity();
       this.updateProduct(newProduct, product);
+      this.productsInCart = [...this.productsInCart];
       this.totalQuantity += 1;
     } else {
       product = new ProductInCart(productToAdd);
       this.productsInCart.push(product);
+      this.productsInCart = [...this.productsInCart];
       this.totalQuantity += product.quantity;
     }
 
@@ -45,7 +47,7 @@ export class CartService {
     const newProduct = new ProductInCart(productInCart);
     newProduct.incrementQuantity();
     this.updateProduct(newProduct, productInCart);
-
+    this.productsInCart = [...this.productsInCart];
     this.totalSum = this.calculateTotalSum();
     this.totalQuantity += 1;
   }
@@ -54,7 +56,7 @@ export class CartService {
     const newProduct = new ProductInCart(productInCart);
     newProduct.decrementQuantity();
     this.updateProduct(newProduct, productInCart);
-
+    this.productsInCart = [...this.productsInCart];
     if (newProduct.quantity === 0) {
       this.removeFromCart(newProduct);
     }
@@ -65,6 +67,7 @@ export class CartService {
 
   deleteFromCart(productInCart: ProductInCart) {
     this.removeFromCart(productInCart);
+    this.productsInCart = [...this.productsInCart];
     this.totalSum = this.calculateTotalSum();
     this.totalQuantity -= productInCart.quantity;
   }

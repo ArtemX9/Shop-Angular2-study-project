@@ -18,7 +18,9 @@ export class ProductsService {
     this.products.push(new Product('Vanilla', 'Vanilla Ice Cream from USA', 20, Category.IceCream, true));
   }
 
-  getProducts(): Product[] {
-    return this.products;
+  getProducts(): Promise<Product[]> {
+    return new Promise((resolve) => {
+      resolve(this.products);
+    });
   }
 }

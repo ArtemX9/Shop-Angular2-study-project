@@ -1,8 +1,8 @@
 <div class="product" [ngClass]="setClasses()">
   <div><b>{{name}}</b></div>
   <div>Description: {{description}}</div>
-  <div>Category: {{category}}</div>
-  <div>Price: {{price}}$</div>
+  <div>Category: {{category | uppercase}}</div>
+  <div>Price: {{price | currency : 'USD'}}</div>
   <div>Is present on stock: {{isAvailable ? 'yes' : 'no'}}</div>
   <button [disabled]="!isAvailable" (click)="onPutToCart()">Buy</button>
 </div>

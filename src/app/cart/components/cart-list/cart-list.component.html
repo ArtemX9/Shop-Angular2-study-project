@@ -1,8 +1,19 @@
 <div class="cart-list">
   <button (click)="onClearCart()">Clear cart</button>
+  <select [(ngModel)]="orderBy">
+    <option value="quantity">Quantity</option>
+    <option value="price">Price</option>
+    <option value="name">Name</option>
+  </select>
+
+  <select [(ngModel)]="isAsc">
+    <option value="false">Descending</option>
+    <option value="true">Ascending</option>
+  </select>
+
   <ol>
     <app-cart-item
-      *ngFor="let productInCart of productsInCart"
+      *ngFor="let productInCart of (productsInCart | orderBy : orderBy : isAsc)"
       [productInCart]="productInCart"
       (incrementQuantity)="onIncrementQuantity(productInCart)"
       (decrementQuantity)="onDecrementQuantity(productInCart)"
@@ -10,7 +21,7 @@
     ></app-cart-item>
   </ol>
   <div class="cart-list__total-sum">
-    Total sum: {{totalSum}}$
+    Total sum: {{totalSum | currency : 'USD'}}
   </div>
   <div>
     Total quantity: {{totalQuantity}}

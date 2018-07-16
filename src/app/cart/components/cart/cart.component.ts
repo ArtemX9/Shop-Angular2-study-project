@@ -24,10 +24,12 @@ export class CartComponent implements OnInit, DoCheck {
   ngDoCheck() {
     const newTotalSum = this.productsInCartService.getTotalSum();
     const newTotalQuantity = this.productsInCartService.getTotalQuantity();
+    const newProductsInCart = this.productsInCartService.getProductsInCart();
 
-    if (this.totalSum !== newTotalSum || this.totalQuantity !== newTotalQuantity) {
+    if (this.totalSum !== newTotalSum || this.totalQuantity !== newTotalQuantity || this.productsInCart !== newProductsInCart) {
       this.totalSum = newTotalSum;
       this.totalQuantity = newTotalQuantity;
+      this.productsInCart = newProductsInCart;
     }
   }
 

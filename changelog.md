@@ -1,17 +1,13 @@
-1. Обновил CartService для работы с total quantity.
+1. Применил currency pipe к ценам внутри компонентов CartList и Product.
 
-2. Переименовал amount на quantity.
+2. Применил uppercase pipe к категории внутри компонента Product.
 
-3. Создал LocalStorageService
+3. Обновил ProductsService чтобы возвращал promise и использовал async pipe для отображения данных в ProductList компоненте.
 
-4. Создал ConfigOptionsService
+4. Создал OrderBy pipe, сделал прием двух параметров
 
-5. Создал ConstantsService
+5. Обновил CartService, чтобы массив productsInCart не мутировался.
 
-6. Создал GeneratorService
+6. Применил OrderBy pipe для CartList компонента.
 
-7. Создал CoreModule и зарегистрировал в нем: LocalStorageService, ConfigOptionsService, ConstantsService, GeneratorService
-
-8. Создал DemoComponent в который внедрил все вышеперечисленные сервисы
-
-9.
+7. Добавил возможность выбора по какому полю сортировать и тип сортировки: возрастание/убывание.
