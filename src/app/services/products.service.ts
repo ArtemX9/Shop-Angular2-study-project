@@ -23,4 +23,10 @@ export class ProductsService {
       resolve(this.products);
     });
   }
+
+  getProductByName(name: String): Promise<Product> {
+    return new Promise((resolve) => {
+      resolve(this.products.find(product => product.name === name));
+    });
+  }
 }

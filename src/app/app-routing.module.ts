@@ -1,18 +1,17 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {Routes, RouterModule} from '@angular/router';
+import {CommentsComponent} from './products/components/comments/comments.component';
 
 const routes: Routes = [
   {
     path: '',
     redirectTo: 'products',
     pathMatch: 'full'
-  },
-  // {
-    // The router will match this route if the URL requested
-    // doesn't match any paths for routes defined in our configuration
-  //   path: '**',
-  //   component: PathNotFoundComponent
-  // }
+  }, {
+    path: 'comments/:name',
+    component: CommentsComponent,
+    outlet: 'comments'
+  }
 ];
 
 @NgModule({
@@ -21,4 +20,5 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule {
+}

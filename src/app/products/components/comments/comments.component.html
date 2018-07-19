@@ -1,3 +1,11 @@
-<p>
-  comments works!
-</p>
+<div class="comments">
+  <div *ngIf="comments.length > 0; else showEmptyMessage">
+    <div *ngFor="let comment of comments" class="comments__comment comments-comment">
+      <p class="comments-comment__user">User: {{comment.user}}</p>
+      <p class="comments-comment__comment">Comment: {{comment.comment}}</p>
+    </div>
+  </div>
+  <ng-template #showEmptyMessage>
+    No comments.
+  </ng-template>
+</div>

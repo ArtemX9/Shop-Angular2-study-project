@@ -1,0 +1,14 @@
+.comments{
+  padding: 15px 15px 0;
+}
+.comments-comment{
+  background-color: lightskyblue;
+  border-radius: 5px;
+  padding: 15px;
+}
+.comments-comment__user {
+  margin: 0;
+}
+.comments-comment__comment{
+  margin: 0;
+}
