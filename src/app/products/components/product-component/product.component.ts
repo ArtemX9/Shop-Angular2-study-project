@@ -10,7 +10,9 @@ import {Category} from '../../../models/CategoryModel';
 })
 export class ProductComponent implements OnInit {
   @Input() product: Product;
+
   @Output() productBuyPress: EventEmitter<Product> = new EventEmitter<Product>();
+  @Output() showDetailedPress: EventEmitter<void> = new EventEmitter<void>();
 
   name: string;
   description: string;
@@ -37,5 +39,9 @@ export class ProductComponent implements OnInit {
 
   onPutToCart(): void {
     this.productBuyPress.emit(this.product);
+  }
+
+  onShowDetailed(): void {
+    this.showDetailedPress.emit();
   }
 }

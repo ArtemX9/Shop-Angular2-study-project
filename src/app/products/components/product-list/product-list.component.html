@@ -1,7 +1,11 @@
 <div class="products">
   <div *ngFor="let product of products | async">
     <div class="products__product">
-      <app-product-component [product]="product" (productBuyPress)="onProductBuyPress($event)"></app-product-component>
+      <app-product-component
+        [product]="product"
+        (productBuyPress)="onProductBuyPress($event)"
+        (showDetailedPress)="onShowDetailedPress(product)"
+      ></app-product-component>
     </div>
   </div>
 </div>

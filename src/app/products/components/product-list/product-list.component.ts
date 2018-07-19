@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Product} from '../../../models/ProductModel';
 import {ProductsService} from '../../../services/products.service';
 import {CartService} from '../../../services/cart.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-product-list',
@@ -11,7 +12,11 @@ import {CartService} from '../../../services/cart.service';
 export class ProductListComponent implements OnInit {
   products: Promise<Product[]>;
 
-  constructor(private productsService: ProductsService, private productsInCartService: CartService) {
+  constructor(
+    private productsService: ProductsService,
+    private productsInCartService: CartService,
+    private router: Router
+  ) {
   }
 
   ngOnInit() {
@@ -20,5 +25,9 @@ export class ProductListComponent implements OnInit {
 
   onProductBuyPress(boughtProduct: Product): void {
     this.productsInCartService.buyProduct(boughtProduct);
+  }
+
+  onShowDetailedPress(product: Product): void {
+    this.router.navigate(['/product', product.name]);
   }
 }

@@ -5,4 +5,5 @@
   <div>Price: {{price | currency : 'USD'}}</div>
   <div>Is present on stock: {{isAvailable ? 'yes' : 'no'}}</div>
   <button [disabled]="!isAvailable" (click)="onPutToCart()">Buy</button>
+  <button (click)="onShowDetailed()">Show info</button>
 </div>
