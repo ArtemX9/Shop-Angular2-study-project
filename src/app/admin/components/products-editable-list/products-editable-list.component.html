@@ -1,0 +1,8 @@
+<div *ngFor="let product of products | async">
+  <app-product-editable-item
+    [product]="product"
+  >
+    <button (click)="onProductEdit(product)">Edit</button>
+    <button (click)="onProductRemove(product)">Remove</button>
+  </app-product-editable-item>
+</div>

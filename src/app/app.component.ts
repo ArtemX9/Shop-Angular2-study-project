@@ -18,4 +18,8 @@ export class AppComponent {
   onCartShow() {
     this.router.navigate(['/cart/overview']);
   }
+
+  onAdminShow() {
+    this.router.navigate(['/admin']);
+  }
 }

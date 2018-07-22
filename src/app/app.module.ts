@@ -7,8 +7,7 @@ import {CartModule} from './cart/cart.module';
 import {CoreModule} from './core/core.module';
 import {DemoComponent} from './demo/demo.component';
 import {AppRoutingModule} from './app-routing.module';
-import {ProductsRoutingModule} from './products/products-routing.module';
-import {CartRoutingModule} from './cart/cart-routing.module';
+import {AdminModule} from './admin/admin.module';
 
 @NgModule({
   declarations: [
@@ -17,11 +16,10 @@ import {CartRoutingModule} from './cart/cart-routing.module';
   ],
   imports: [
     BrowserModule,
+    CoreModule,
     ProductsModule,
     CartModule,
-    CoreModule,
-    ProductsRoutingModule,
-    CartRoutingModule,
+    AdminModule,
     AppRoutingModule
   ],
   providers: [],
