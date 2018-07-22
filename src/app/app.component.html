@@ -1,14 +1,13 @@
 <div class="main-page">
   <div class="main-page__header">
     <app-demo></app-demo>
+    <button (click)="onProductsShow()">Products</button>
+    <button (click)="onCartShow()">Cart</button>
   </div>
   <div class="main-page__body main-page-body" >
     <div class="main-page-body__products">
       <router-outlet></router-outlet>
       <router-outlet name="comments"></router-outlet>
-    </div>
-    <div class="main-page-body__cart">
-      <app-cart></app-cart>
     </div>
   </div>
 </div>

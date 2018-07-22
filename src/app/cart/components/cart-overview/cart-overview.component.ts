@@ -3,11 +3,11 @@ import {ProductInCart} from '../../../models/ProductInCartModel';
 import {CartService} from '../../../services/cart.service';
 
 @Component({
-  selector: 'app-cart',
-  templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.css']
+  selector: 'app-cart-overview',
+  templateUrl: './cart-overview.component.html',
+  styleUrls: ['./cart-overview.component.css']
 })
-export class CartComponent implements OnInit, DoCheck {
+export class CartOverviewComponent implements OnInit, DoCheck {
   productsInCart: ProductInCart[];
   totalSum: number;
   totalQuantity: number;

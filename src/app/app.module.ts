@@ -8,6 +8,7 @@ import {CoreModule} from './core/core.module';
 import {DemoComponent} from './demo/demo.component';
 import {AppRoutingModule} from './app-routing.module';
 import {ProductsRoutingModule} from './products/products-routing.module';
+import {CartRoutingModule} from './cart/cart-routing.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import {ProductsRoutingModule} from './products/products-routing.module';
     CartModule,
     CoreModule,
     ProductsRoutingModule,
+    CartRoutingModule,
     AppRoutingModule
   ],
   providers: [],
