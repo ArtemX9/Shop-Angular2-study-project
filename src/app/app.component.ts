@@ -22,4 +22,8 @@ export class AppComponent {
   onAdminShow() {
     this.router.navigate(['/admin']);
   }
+
+  onLoginShow() {
+    this.router.navigate(['/login']);
+  }
 }

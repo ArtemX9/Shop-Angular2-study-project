@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {CommentsComponent} from './products/components/comments/comments.component';
+import {LoginComponent} from './login/login/login.component';
 
 const routes: Routes = [
   {
@@ -11,6 +12,9 @@ const routes: Routes = [
     path: 'comments/:name',
     component: CommentsComponent,
     outlet: 'comments'
+  }, {
+    path: 'login',
+    component: LoginComponent
   }
 ];
 

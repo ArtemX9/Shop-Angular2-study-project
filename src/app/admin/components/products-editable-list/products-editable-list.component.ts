@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ProductsService} from '../../../services/products.service';
 import {Product} from '../../../models/ProductModel';
-import {ActivatedRoute, Route, Router} from '@angular/router';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-products-editable-list',
@@ -13,8 +13,7 @@ export class ProductsEditableListComponent implements OnInit {
 
   constructor(
     private productsService: ProductsService,
-    private router: Router,
-    private activatedRoute: ActivatedRoute
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -22,7 +21,7 @@ export class ProductsEditableListComponent implements OnInit {
   }
 
   onProductEdit(product: Product) {
-    this.router.navigate(['./edit-product/', product.name], {relativeTo: this.activatedRoute});
+    this.router.navigate(['./admin/edit-product/', product.name]);
   }
 
   onProductRemove(product: Product) {
