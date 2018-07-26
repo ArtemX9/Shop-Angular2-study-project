@@ -6,13 +6,13 @@ import {ProductInCart} from '../../models/ProductInCartModel';
 })
 export class OrderByPipe implements PipeTransform {
 
-  transform(products: ProductInCart[], field?: string, isAsc?: string): any {
+  transform(products: ProductInCart[], field?: string, isAsc?: boolean): any {
     return [...products.sort((a, b) => {
       const res = a[field] - b[field];
       switch (isAsc) {
-        case 'true':
+        case true:
           return res >= 0 ? 1 : -1;
-        case 'false':
+        case false:
           return res > 0 ? -1 : 1;
         default:
           return res;

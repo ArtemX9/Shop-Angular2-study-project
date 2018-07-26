@@ -3,6 +3,8 @@ import {User} from '../../../models/User';
 import {UsersService} from '../../../services/users.service';
 import {Router} from '@angular/router';
 import {CartService} from '../../../services/cart.service';
+import {OrdersService} from '../../../services/orders.service';
+import {Order} from '../../../models/OrderModel';
 
 @Component({
   selector: 'app-cart-checkout',
@@ -15,7 +17,8 @@ export class CartCheckoutComponent implements OnInit {
   constructor(
     private usersService: UsersService,
     private router: Router,
-    private cartService: CartService
+    private cartService: CartService,
+    private ordersService: OrdersService
   ) { }
 
   ngOnInit() {
@@ -24,6 +27,8 @@ export class CartCheckoutComponent implements OnInit {
 
   onCheckout() {
     this.usersService.addUser(this.user);
+    const order = new Order(this.user, this.cartService.getProductsInCart());
+    this.ordersService.addOrder(order);
     this.cartService.clearCart();
     this.router.navigate(['']);
     alert('Your order was posted');

@@ -17,7 +17,7 @@ export class CartListComponent implements OnInit {
   @Output() clearCart: EventEmitter<ProductInCart> = new EventEmitter<ProductInCart>();
 
   orderBy = 'quantity';
-  isAsc = 'false';
+  isAsc = false;
 
   constructor() {
   }

@@ -7,7 +7,6 @@ import {CartModule} from './cart/cart.module';
 import {CoreModule} from './core/core.module';
 import {DemoComponent} from './demo/demo.component';
 import {AppRoutingModule} from './app-routing.module';
-import {AdminModule} from './admin/admin.module';
 import { LoginComponent } from './login/login/login.component';
 import {FormsModule} from '@angular/forms';
 
@@ -23,7 +22,6 @@ import {FormsModule} from '@angular/forms';
     CoreModule,
     ProductsModule,
     CartModule,
-    AdminModule,
     AppRoutingModule
   ],
   providers: [],

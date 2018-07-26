@@ -8,6 +8,7 @@ import { ProductEditFormComponent } from './components/product-edit-form/product
 import { ProductEditableItemComponent } from './components/product-editable-item/product-editable-item.component';
 import {CoreModule} from '../core/core.module';
 import { OrdersListComponent } from './components/orders-list/orders-list.component';
+import { OrderElementComponent } from './components/order-element/order-element.component';
 
 @NgModule({
   imports: [
@@ -17,6 +18,6 @@ import { OrdersListComponent } from './components/orders-list/orders-list.compon
     SharedModule,
     AdminRoutingModule
   ],
-  declarations: [adminComponents, ProductEditFormComponent, ProductEditableItemComponent, OrdersListComponent]
+  declarations: [adminComponents, ProductEditFormComponent, ProductEditableItemComponent, OrdersListComponent, OrderElementComponent]
 })
 export class AdminModule { }

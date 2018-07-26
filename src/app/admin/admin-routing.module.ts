@@ -7,7 +7,7 @@ import {AdminGuard} from '../shared/guard/admin.guard';
 import {OrdersListComponent} from './components/orders-list/orders-list.component';
 
 const routes: Routes = [{
-  path: 'admin',
+  path: '',
   component: AdminComponent,
   canActivate: [AdminGuard],
   children: [{

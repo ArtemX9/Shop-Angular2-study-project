@@ -7,7 +7,9 @@
     <button (click)="onLoginShow()">Login</button>
   </div>
   <div class="main-page__body main-page-body" >
-      <router-outlet></router-outlet>
+      <div style="width: 100%;">
+        <router-outlet></router-outlet>
+      </div>
       <router-outlet name="comments"></router-outlet>
   </div>
 </div>

@@ -1,0 +1,13 @@
+.order-element {
+  padding: 15px 15px;
+  margin-bottom: 15px;
+  background-color: lightgoldenrodyellow;
+}
+
+.order-element__user-info p {
+  padding-left: 10px;
+}
+
+.order-element__user-order p {
+  padding-left: 10px;
+}

@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {CommentsComponent} from './products/components/comments/comments.component';
 import {LoginComponent} from './login/login/login.component';
+import {AdminGuard} from './shared/guard/admin.guard';
 
 const routes: Routes = [
   {
@@ -15,6 +16,10 @@ const routes: Routes = [
   }, {
     path: 'login',
     component: LoginComponent
+  }, {
+    path: 'admin',
+    canLoad: [AdminGuard],
+    loadChildren: './admin/admin.module#AdminModule'
   }
 ];
 
@@ -24,5 +29,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule {
-}
+export class AppRoutingModule {}

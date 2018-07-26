@@ -1,0 +1,14 @@
+<div class="order-element">
+  <div class="order-element__user-info">
+    User Info:
+    <p>Name: {{order.user.name | titlecase }}</p>
+    <p>Last name: {{order.user.lastName | titlecase }}</p>
+    <p>Address: {{order.user.address | titlecase }}</p>
+  </div>
+  <div class="order-element__user-order">
+    Ordered items:
+    <p *ngFor="let order of order.order">
+      {{order.name | titlecase }} - {{order.quantity}} - {{order.price | currency : 'USD'}}
+    </p>
+  </div>
+</div>

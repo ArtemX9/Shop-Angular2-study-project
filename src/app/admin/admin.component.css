@@ -1,3 +1,9 @@
 .admin__tabs {
+  padding: 10px 5px;
+  width: 100%;
+  background-color: lightpink;
+}
 
+.admin__tabs a {
+  margin-left: 15px;
 }

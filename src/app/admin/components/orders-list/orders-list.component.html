@@ -1,3 +1,7 @@
-<p>
-  orders-list works!
-</p>
+<div>
+  <div *ngFor="let order of orders | async">
+    <app-order-element
+      [order]="order"
+    ></app-order-element>
+  </div>
+</div>

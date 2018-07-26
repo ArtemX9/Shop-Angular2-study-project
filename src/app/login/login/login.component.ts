@@ -36,12 +36,14 @@ export class LoginComponent implements OnInit, OnDestroy {
       .login(this.username)
       .subscribe(isLoggedIn => {
         if (isLoggedIn) {
-          this.router.navigate(['/admin']);
+          const url = this.authService.redirectUrl || '/admin';
+          this.router.navigate([url]);
         } else {
           this.message = 'Cannot login: Incorrect user name';
         }
       });
   }
+
   onLogout() {
     this.authService.logout();
     this.message = 'Logged out';
