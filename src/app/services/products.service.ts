@@ -1,6 +1,7 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Product} from '../models/ProductModel';
 import {Category} from '../models/CategoryModel';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,9 @@ import {Category} from '../models/CategoryModel';
 export class ProductsService {
   private products: Product[] = [];
 
-  constructor() {
+  constructor(
+    private http: HttpClient
+  ) {
     this.products.push(new Product('Watermelon', 'Watermelon from Russia', 5, Category.Berries, true));
     this.products.push(new Product('Melon', 'Melon from Georgia', 3, Category.Berries, true));
     this.products.push(new Product('Pineapple', 'Pineapple from Japan', 7, Category.Berries, true));
@@ -19,14 +22,10 @@ export class ProductsService {
   }
 
   getProducts(): Promise<Product[]> {
-    return new Promise((resolve) => {
-      resolve(this.products);
-    });
+    return this.http.get<Product[]>('http://localhost:3000/products').toPromise();
   }
 
   getProductByName(name: String): Promise<Product> {
-    return new Promise((resolve) => {
-      resolve(this.products.find(product => product.name === name));
-    });
+    return this.http.get<Product>(`http://localhost:3000/products?name=${name}`).toPromise().then(data => data[0]);
   }
 }

@@ -4,7 +4,7 @@
       "id": 1,
       "name": "Watermelon",
       "description": "Watermelon from Russia",
-      "price": 1,
+      "price": 13,
       "category": "Berries",
       "isAvailable": true
     },
@@ -12,7 +12,7 @@
       "id": 2,
       "name": "Melon",
       "description": "Melon from Georgia",
-      "price": 1,
+      "price": 12,
       "category": "Fruits",
       "isAvailable": true
     },
@@ -20,7 +20,7 @@
       "id": 3,
       "name": "Pineapple",
       "description": "Pineapple from Japan",
-      "price": 1,
+      "price": 10,
       "category": "Fruits",
       "isAvailable": true
     },
@@ -28,7 +28,7 @@
       "id": 4,
       "name": "Vinegar",
       "description": "'Vinegar from France",
-      "price": 1,
+      "price": 21,
       "category": "Berries",
       "isAvailable": true
     },
@@ -36,7 +36,7 @@
       "id": 5,
       "name": "Peach",
       "description": "Peach from Spain",
-      "price": 1,
+      "price": 61,
       "category": "Fruits",
       "isAvailable": true
     },
@@ -44,7 +44,7 @@
       "id": 6,
       "name": "Tomato",
       "description": "Tomato from Russia",
-      "price": 1,
+      "price": 11,
       "category": "Fruits",
       "isAvailable": true
     },
@@ -52,7 +52,7 @@
       "id": 7,
       "name": "Vanilla",
       "description": "Vanilla Ice Cream from USA",
-      "price": 1,
+      "price": 111,
       "category": "IceCream",
       "isAvailable": true
     },
@@ -60,7 +60,7 @@
       "id": 8,
       "name": "Lemon",
       "description": "Lemon from Ukraine",
-      "price": 1,
+      "price": 12,
       "category": "Fruits",
       "isAvailable": true
     },
@@ -68,7 +68,7 @@
       "id": 9,
       "name": "Potato",
       "description": "Potato form Belarus",
-      "price": 1,
+      "price": 16,
       "category": "Vegetables",
       "isAvailable": true
     }
