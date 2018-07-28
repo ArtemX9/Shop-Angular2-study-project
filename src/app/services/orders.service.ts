@@ -1,33 +1,27 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Order} from '../models/OrderModel';
-import {Observable, of} from 'rxjs';
-import {delay} from 'rxjs/operators';
-import {LocalStorageService} from '../core/services/local-storage.service';
-
-const ORDERS_LS_KEY = 'orders';
+import {Observable} from 'rxjs';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OrdersService {
-  private orders: Order[] = [];
-
   constructor(
-    private localStorageService: LocalStorageService
+    private http: HttpClient
   ) {
-    const savedOrders: Order[] = localStorageService.getItem(ORDERS_LS_KEY);
-    this.orders = savedOrders || [];
   }
 
   getOrders(): Observable<Order[]> {
-    return of(this.orders).pipe(
-      delay(1000)
-    );
+    return this.http.get<Order[]>(`http://localhost:3000/orders`);
   }
 
-  addOrder(order: Order) {
-    this.orders = [...this.orders, order];
-    this.localStorageService.setItem(ORDERS_LS_KEY, this.orders);
+  addOrder(order: Order): Observable<Order> {
+    const url = 'http://localhost:3000/orders';
+    const body = JSON.stringify(order);
+    const options = {
+      headers: new HttpHeaders({'Content-Type': 'application/json'})
+    };
+    return this.http.post<Order>(url, body, options);
   }
-
 }

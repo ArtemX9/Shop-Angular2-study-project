@@ -2,32 +2,34 @@ import {Injectable} from '@angular/core';
 import {User} from '../models/User';
 import {Observable, of, throwError} from 'rxjs';
 import {catchError, map} from 'rxjs/operators';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsersService {
-  private users = [
-    new User(1, 'Admin', 'Admin', 'Russia, SPb', true)
-  ];
-
-  private users$: Observable<User[]> = of(this.users);
-
-  constructor() {
+  constructor(
+    private http: HttpClient
+  ) {
   }
 
   getUsers(): Observable<User[]> {
-    return this.users$;
+    return this.http.get<User[]>(`http://localhost:3000/users`);
   }
 
   getUser(id: number): Observable<User> {
-    return this.getUsers().pipe(
-      map(users => users.find(user => user.id === id)),
+    return this.http.get<User>(`http://localhost:3000/users/${id}`).pipe(
       catchError(err => throwError('Error in getUser method'))
     );
   }
 
-  addUser(user: User): void {
-    this.users.push(user);
+  addUser(user: User): Observable<User> {
+    const url = 'http://localhost:3000/users',
+      body = JSON.stringify(user),
+      options = {
+        headers: new HttpHeaders({'Content-Type': 'application/json'})
+      };
+
+    return this.http.post<User>(url, body, options);
   }
 }

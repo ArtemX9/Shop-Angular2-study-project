@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {User} from '../../../models/User';
 import {UsersService} from '../../../services/users.service';
 import {Router} from '@angular/router';
@@ -19,19 +19,22 @@ export class CartCheckoutComponent implements OnInit {
     private router: Router,
     private cartService: CartService,
     private ordersService: OrdersService
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
     this.user = new User(null, '', '', '', false);
   }
 
   onCheckout() {
-    this.usersService.addUser(this.user);
-    const order = new Order(this.user, this.cartService.getProductsInCart());
-    this.ordersService.addOrder(order);
-    this.cartService.clearCart();
-    this.router.navigate(['']);
-    alert('Your order was posted');
+    this.usersService.addUser(this.user).subscribe(() => {
+      const order = new Order(this.user, this.cartService.getProductsInCart());
+      this.ordersService.addOrder(order).subscribe(() => {
+        this.cartService.clearCart();
+        this.router.navigate(['']);
+        alert('Your order was posted');
+      });
+    });
   }
 
   goBack() {
