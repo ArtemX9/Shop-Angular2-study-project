@@ -1,26 +1,22 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CommentsService {
-  private comments = [{
-    name: 'Melon',
-    comments: [{
-      user: 'a1',
-      comment: 'such a great melon'
-    }]
-  }];
+  private comments = [];
 
-  constructor() { }
+  constructor(private http: HttpClient) {
+  }
 
   getComments(name: String): Promise<any[]> {
-    return new Promise((resolve, reject) => {
-      const commentsForProduct = this.comments.find(comment => comment.name === name);
+    return this.http.get<any[]>(`http://localhost:3000/comments?name=${name}`).toPromise().then(comments => {
+      const commentsForProduct = comments[0];
       if (commentsForProduct && commentsForProduct.comments && commentsForProduct.comments.length) {
-        resolve(commentsForProduct.comments);
+        return (commentsForProduct.comments);
       } else {
-        resolve([]);
+        return ([]);
       }
     });
   }

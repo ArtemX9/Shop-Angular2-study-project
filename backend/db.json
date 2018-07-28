@@ -80,5 +80,12 @@
     "lastName": "Admin",
     "address": "Russia, SPb",
     "isAdmin": true
+  }],
+  "comments": [{
+    "name": "Melon",
+    "comments": [{
+      "user": "a1",
+      "comment": "such a great melon"
+    }]
   }]
 }
