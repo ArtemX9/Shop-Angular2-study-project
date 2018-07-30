@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import {LocalStorageService} from '../core/services/local-storage.service';
-import {IAppSettings} from '../models/AppSettings';
-import defaultSettings from '../../assets/app-settings.json';
+import {AppSettings, IAppSettings} from '../models/AppSettings';
 
 const APP_SETTINGS = 'APP_SETTINGS';
 
@@ -9,16 +8,30 @@ const APP_SETTINGS = 'APP_SETTINGS';
   providedIn: 'root'
 })
 export class AppSettingsService {
-  private readonly settings: IAppSettings;
+  private settings: IAppSettings;
 
   constructor(
     private localStorageService: LocalStorageService
     ) {
     this.settings = this.localStorageService.getItem(APP_SETTINGS);
     if (!this.settings) {
-      this.settings = defaultSettings;
-      this.localStorageService.setItem(APP_SETTINGS, defaultSettings);
+      try {
+        const defaultSettings = require('../../assets/app-settings.json');
+        this.setSettings(defaultSettings);
+      } catch (e) {
+        console.log(e);
+      } finally {
+        if (!this.settings) {
+          this.setSettings(new AppSettings('http://localhost:3000'));
+        }
+      }
+
     }
+  }
+
+  private setSettings(settings: IAppSettings) {
+    this.settings = settings;
+    this.localStorageService.setItem(APP_SETTINGS, settings);
   }
 
   getApiUrl(): string {
