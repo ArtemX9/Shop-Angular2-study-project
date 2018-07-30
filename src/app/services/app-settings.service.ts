@@ -16,6 +16,7 @@ export class AppSettingsService {
     this.settings = this.localStorageService.getItem(APP_SETTINGS);
     if (!this.settings) {
       try {
+        // @ts-ignore
         const defaultSettings = require('../../assets/app-settings.json');
         this.setSettings(defaultSettings);
       } catch (e) {

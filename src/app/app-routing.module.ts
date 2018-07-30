@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {CommentsComponent} from './products/components/comments/comments.component';
 import {LoginComponent} from './login/login/login.component';
-import {AdminGuard} from './shared/guard/admin.guard';
+import {AdminGuard} from './core/guard/admin.guard';
 
 const routes: Routes = [
   {
