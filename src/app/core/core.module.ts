@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {ConstantsService} from './services/constants.service';
 import {GeneratorService} from './services/generator.service';
 import {LocalStorageService} from './services/local-storage.service';
@@ -7,7 +7,7 @@ import {AuthService} from './services/auth.service';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
   ],
   declarations: [],
   providers: [{
@@ -17,8 +17,9 @@ import {AuthService} from './services/auth.service';
     provide: GeneratorService.token,
     useFactory: GeneratorService.factory(5)
   },
-  LocalStorageService,
+    LocalStorageService,
     AuthService
   ]
 })
-export class CoreModule { }
+export class CoreModule {
+}

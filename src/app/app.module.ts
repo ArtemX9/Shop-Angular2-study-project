@@ -9,7 +9,8 @@ import {DemoComponent} from './demo/demo.component';
 import {AppRoutingModule} from './app-routing.module';
 import { LoginComponent } from './login/login/login.component';
 import {FormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {TimingInterceptorService} from './core/services/timing-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,11 @@ import {HttpClientModule} from '@angular/common/http';
     CartModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: TimingInterceptorService,
+    multi: true,
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule {
