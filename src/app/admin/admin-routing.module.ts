@@ -12,6 +12,7 @@ const routes: Routes = [{
   canActivate: [AdminGuard],
   children: [{
     path: '',
+    canActivateChild: [AdminGuard],
     children: [{
       path: 'products',
       component: ProductsEditableListComponent
